@@ -1,0 +1,32 @@
+{
+  "authentication": {
+    "blockUnknown": true,
+    "class": "solr.BasicAuthPlugin",
+    "credentials": {
+      "simec": "f0sbszvqSm43v+HrnjPEZc37dQCZoB/G0dKbUZWESXA= +CSq1fNfPSmT8N8D8yEIvd1WiHU2Lk6seKA0Pza6/3w=",
+      "dev": "g0VtYF7Bx664zxu4845h02Wa+WyYIRVdcGk5aSvesQM= pKG5lvlsGWQufelhXs9U+dapWAINmi8eJCWbn5pGJxI="
+    },
+    "realm": "My Solr users",
+    "forwardCredentials": false,
+    "": {
+      "v": 0
+    }
+  },
+  "authorization": {
+    "class": "solr.RuleBasedAuthorizationPlugin",
+    "permissions": [
+      {
+        "name": "core-admin-edit",
+        "role": "dev"
+      },
+      {
+        "name": "security-edit",
+        "role": "admin"
+      }
+    ],
+    "user-role": {
+      "simec": "admin",
+      "dev": "dev"
+    }
+  }
+}

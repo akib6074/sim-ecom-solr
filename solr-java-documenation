@@ -1,0 +1,52 @@
+================
+java 1.8 version
+################
+
+copy solr-java folder to home folder 
+edit oracle-java8.sh and change java home folder accordingly
+copy oracle-java8.sh to /etc/profile.d 
+
+execute following commands 
+chmod +x /etc/profile.d/oracle-java8.sh #export JAVA_HOME path
+source /etc/profile.d/oracle-java8.sh #set JAVA_HOME path 
+java --version #check JAVA_HOME path
+  
+==================
+solr 8.8.0 version
+##################
+
+security.json file
+==================
+
+{
+  "authentication":{
+    "blockUnknown":true,
+    "class":"solr.BasicAuthPlugin",
+    "credentials":{"simec":"f0sbszvqSm43v+HrnjPEZc37dQCZoB/G0dKbUZWESXA= +CSq1fNfPSmT8N8D8yEIvd1WiHU2Lk6seKA0Pza6/3w="},
+    "realm":"My Solr users",
+    "forwardCredentials":false,
+    "":{"v":0}},
+  "authorization":{
+    "class":"solr.RuleBasedAuthorizationPlugin",
+    "permissions":[{
+        "name":"security-edit",
+        "role":"admin"}],
+    "user-role":{"simec":"admin"}
+    }
+}
+
+
+### simec user password is changed (change admin password)
+###=======================================================
+
+###curl --user simec:SolrRocks http://localhost:8983/solr/admin/authentication -H 'Content-type:application/json' -d '{"set-user": {"simec":"SimecSolr@2021"}}'
+
+export authentication for command execution in command line
+===========================================================
+
+export SOLR_AUTH_TYPE='basic'
+export SOLR_AUTHENTICATION_OPTS='-Dbasicauth=dev:SolrDev@2021'
+
+create_core command to create core
+==================================
+bin/solr create_core -c shops

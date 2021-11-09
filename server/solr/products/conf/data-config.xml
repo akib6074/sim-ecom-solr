@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataConfig>
+    <dataSource type="JdbcDataSource" name="products" driver="org.postgresql.Driver" url="jdbc:postgresql://127.0.0.1:5432/ecom" user="postgres"
+                password="postgres" />
+    <document name="products">
+        <entity name="products" query="select
+        p.id as product_id,
+        p.updated_at as updated_at,
+        p.name as product_name,
+        p.meta_title as meta_title,
+        p.description as description,
+        p.summary as summary,
+        p.location as product_location,
+        p.geo_location as geo_location,
+        p.reference as reference,
+        p.price as price,
+        p.rating as rating,
+        p.popular as popular,
+        p.trending as trending,
+        p.on_sale as on_sale,
+        p.is_virtual as is_virtual,
+        p.is_pack as is_pack,
+        p.image as image,
+        c.name as category_name,
+        c.id as category_id
+        from products p inner join categories c on c.id = p.category_id where p.is_active = '1' and c.is_active = '1';">
+
+            <field column="id" name="id" />
+            <field column="updated_at" name="updated_at" />
+            <field column="product_name" name="product_name" />
+            <field column="meta_title" name="meta_title" />
+            <field column="description" name="description" />
+            <field column="summary" name="summary" />
+            <field column="reference" name="reference" />
+            <field column="price" name="price" />
+            <field column="rating" name="rating" />
+            <field column="popular" name="popular" />
+            <field column="trending" name="trending" />
+            <field column="product_location" name="product_location" />
+            <field column="geo_location" name="geo_location" />
+            <field column="on_sale" name="on_sale" />
+            <field column="is_virtual" name="is_virtual" />
+            <field column="is_pack" name="is_pack" />
+            <field column="image" name="image" />
+            <field column="category_name" name="category_name" />
+            <field column="category_id" name="category_id" />
+        </entity>
+    </document>
+</dataConfig>

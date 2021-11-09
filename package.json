@@ -1,0 +1,12 @@
+{
+  "name": "alet-be-solr",
+  "version": "1.0.0",
+  "description": "alet solr java server",
+  "author": "simec system ltd.",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "start": "./bin/solr start",
+    "stop": "./bin/solr stop"
+  }
+}

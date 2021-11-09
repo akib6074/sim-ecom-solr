@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<dataConfig>
+    <dataSource type="JdbcDataSource" name="products" driver="org.postgresql.Driver" url="jdbc:postgresql://127.0.0.1:5432/ecom" user="postgres"
+                password="postgres" />
+    <document name="shops">
+        <entity name="shops" query="select
+        s.id as id,
+        s.updated_at as updated_at,
+        s.name as shop_name,
+        s.domain as shop_domain,
+        s.rating as rating,
+        s.popular as popular,
+        s.trending as trending,
+        s.location as shop_location,
+        s.geo_location as geo_location,
+        s.shop_profile_image as shop_profile_image,
+        s.shop_cover_image as shop_cover_image,
+        st.id as shop_type_id,
+        st.name as shop_type_name
+        from shops s inner join shop_types st on st.id = s.shop_type_id where s.is_active = '1' and st.is_active = '1';">
+            <field column="id" name="id" />
+            <field column="updated_at" name="updated_at" />
+            <field column="shop_name" name="shop_name" />
+            <field column="shop_domain" name="shop_domain" />
+            <field column="rating" name="rating" />
+            <field column="popular" name="popular" />
+            <field column="trending" name="trending" />
+            <field column="shop_location" name="shop_location" />
+            <field column="geo_location" name="geo_location" />
+            <field column="shop_profile_image" name="shop_profile_image" />
+            <field column="shop_cover_image" name="shop_cover_image" />
+            <field column="shop_type_id" name="shop_type_id" />
+            <field column="shop_type_name" name="shop_type_name" />
+        </entity>
+    </document>
+</dataConfig> 
